@@ -98,7 +98,7 @@ test_sprint();
 test_scanf();
 main() {
 	//chapter01();
-	chapter02();
+	//chapter02();
 
 
 	//pointer();
@@ -109,7 +109,7 @@ main() {
 
 	//test_print();
 	//test_sprint();
-	//test_scanf();
+	test_scanf();
 }
 /*
 命令行参数程序1 
