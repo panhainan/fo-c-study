@@ -82,14 +82,20 @@ void pointer() {
 //	chapter05/array.c
 void array_test();
 f0();
-char_array();
+void char_array();
 void array() {
 	//array_test();
 	//f0();
 	char_array();
 }
-//	chapter06/stuct.c
+//	chapter06/struct.c
 test_point();
+void test_size_of();
+
+//	chapter07/print.c
+test_print();
+test_sprint();
+test_scanf();
 main() {
 	//chapter01();
 	//chapter02();
@@ -98,7 +104,12 @@ main() {
 	//pointer();
 	//array();
 
-	test_point();
+	//test_point();
+	//test_size_of();
+
+	test_print();
+	//test_sprint();
+	//test_scanf();
 }
 /*
 命令行参数程序1 
