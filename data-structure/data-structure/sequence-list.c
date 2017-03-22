@@ -16,6 +16,7 @@ void increamSqListCapacity(SqList *L) {
 	if (L->length >= L->capacity) {
 		L->capacity = DEFAULT_CAPACITY * CAPACITY_INCREAM_MULTPLE;
 		L->elem = (ElemType *)realloc(L->elem, L->capacity * sizeof(ElemType));
+		if (!L->elem) exit(OVERFOLW);
 	}
 }
 Status isSqListEmpty(SqList *L) {
