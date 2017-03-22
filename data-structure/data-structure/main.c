@@ -1,14 +1,24 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
 #include"sequence-list.h"
 void main() {
 	SqList L;
 	if (initSqList(&L)) {
-		for (int i = 0; i < 12; i++) {
-			ElemType e = i+10000000;
-			insertSqList(&L, e);
-		}
+		addSqList(&L, "abc");
+		addSqList(&L, "bcd");
 		printSqList(&L);
-		insertSqListI(&L, 4, 4);
+		setSqList(&L, 4, 2);
+		printSqList(&L);
+		ElemType *deleteElem = (void *)malloc(10);
+		removeSqList(&L, deleteElem);
+		printSqList(&L);
+		printf("deleteElem:%d\n", *deleteElem);
+		removeSqListI(&L, deleteElem,4);
+		printSqList(&L);
+		printf("deleteElem:%d\n", *deleteElem);
+		clearSqList(&L);
 		printSqList(&L);
 	}
 }
