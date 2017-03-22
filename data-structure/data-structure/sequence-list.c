@@ -58,10 +58,10 @@ Status removeSqList(SqList *L, ElemType *elem) {
 		return FAIL_EMPTY;
 	}
 	*elem = L->elem[L->length - 1];
+	//释放末尾位置的内存？释放不了，将对应的值赋值为NULL;
+	L->elem[L->length - 1] = NULL;
 	L->length--;
-	//释放末尾位置的内存？
-	//L->elem[L->length] = NULL;
-	//free((*L).elem[(*L).length]);
+	
 	return SUCCESS;
 }
 Status removeSqListI(SqList *L, ElemType *elem,int position) {
@@ -76,8 +76,9 @@ Status removeSqListI(SqList *L, ElemType *elem,int position) {
 	for (int i = position - 1, len = L->length; i <= len - 2; i++) {
 		L->elem[i] = L->elem[i + 1];
 	}
+	//释放末尾位置的内存？释放不了，将对应的值赋值为NULL;
+	L->elem[L->length - 1] = NULL;
 	L->length--;
-	// 释放末尾元素内存?
 	return SUCCESS;
 }
 Status lastSqList(SqList *L, ElemType *elem) {
