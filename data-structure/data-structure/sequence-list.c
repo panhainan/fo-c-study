@@ -4,22 +4,24 @@
 #include<string.h>
 #include"sequence-list.h"
 
-Status initSqList(SqList *L) {
+SqList newSqList() {
+	SqList L = (SqList)malloc(sizeof(SqList));
+	if (!L) exit(OVERFOLW);
 	//如果分配成功则返回指向被分配内存的指针(此存储区中的初始值不确定)，否则返回空指针NULL。
-	L->elem = (ElemType *)malloc(DEFAULT_CAPACITY*sizeof(ElemType));
+	L->elem = (ElemType *)malloc(DEFAULT_CAPACITY * sizeof(ElemType));
 	if (!L->elem) exit(OVERFOLW);
 	L->length = 0;
 	L->capacity = DEFAULT_CAPACITY;
-	return SUCCESS;
+	return L;
 }
-void increamSqListCapacity(SqList *L) {
+void increamSqListCapacity(SqList L) {
 	if (L->length >= L->capacity) {
-		L->capacity = DEFAULT_CAPACITY * CAPACITY_INCREAM_MULTPLE;
+		L->capacity = L->capacity + DEFAULT_CAPACITY * CAPACITY_INCREAM_MULTPLE;
 		L->elem = (ElemType *)realloc(L->elem, L->capacity * sizeof(ElemType));
 		if (!L->elem) exit(OVERFOLW);
 	}
 }
-Status isSqListEmpty(SqList *L) {
+Status isSqListEmpty(SqList L) {
 	if (L->length == 0) {
 		return TRUE;
 	}
@@ -27,7 +29,7 @@ Status isSqListEmpty(SqList *L) {
 		return FALSE;
 	}
 }
-Status isInSqListLimit(SqList *L,int position) {
+Status isInSqListLimit(SqList L,int position) {
 	if (position<1 || position > L->length) {
 		return FALSE;
 	}
@@ -35,12 +37,12 @@ Status isInSqListLimit(SqList *L,int position) {
 		return TRUE;
 	}
 }
-Status addSqList(SqList *L, ElemType elem) {
+Status addSqList(SqList L, ElemType elem) {
 	increamSqListCapacity(L);
 	L->elem[(L->length++)] = elem;
 	return SUCCESS;
 }
-Status setSqList(SqList *L, ElemType elem, int position) {
+Status setSqList(SqList L, ElemType elem, int position) {
 	if (!isInSqListLimit(L, position)) {
 		return FAIL_LIMIT;
 	}
@@ -52,19 +54,18 @@ Status setSqList(SqList *L, ElemType elem, int position) {
 	L->elem[position - 1] = elem;
 	return SUCCESS;
 }
-Status removeSqList(SqList *L, ElemType *elem) {
+Status removeSqList(SqList L, ElemType *elem) {
 	if (isSqListEmpty(L)) {
 		*elem = NULL;
 		return FAIL_EMPTY;
 	}
 	*elem = L->elem[L->length - 1];
-	//释放末尾位置的内存？释放不了，将对应的值赋值为NULL;
 	L->elem[L->length - 1] = NULL;
 	L->length--;
 	
 	return SUCCESS;
 }
-Status removeSqListI(SqList *L, ElemType *elem,int position) {
+Status removeSqListI(SqList L, ElemType *elem,int position) {
 	if (isSqListEmpty(L)) {
 		*elem = NULL;
 		return FAIL_EMPTY;
@@ -76,12 +77,11 @@ Status removeSqListI(SqList *L, ElemType *elem,int position) {
 	for (int i = position - 1, len = L->length; i <= len - 2; i++) {
 		L->elem[i] = L->elem[i + 1];
 	}
-	//释放末尾位置的内存？释放不了，将对应的值赋值为NULL;
 	L->elem[L->length - 1] = NULL;
 	L->length--;
 	return SUCCESS;
 }
-Status lastSqList(SqList *L, ElemType *elem) {
+Status lastSqList(SqList L, ElemType *elem) {
 	if (isSqListEmpty(L)) {
 		*elem = NULL;
 		return FAIL_EMPTY;
@@ -90,7 +90,7 @@ Status lastSqList(SqList *L, ElemType *elem) {
 	return SUCCESS;
 }
 
-Status getSqList(SqList *L, ElemType *elem, int position) {
+Status getSqList(SqList L, ElemType *elem, int position) {
 	if (!isInSqListLimit(L, position)) {
 		*elem = NULL;
 		return FAIL_LIMIT;
@@ -98,15 +98,15 @@ Status getSqList(SqList *L, ElemType *elem, int position) {
 	*elem = L->elem[position - 1];
 	return SUCCESS;
 }
-Status clearSqList(SqList *L) {
+Status clearSqList(SqList L) {
 	L->length = 0;
 	return SUCCESS;
 }
-Status printSqList(SqList *L) {
+Status printSqList(SqList L) {
 	char *s = (char *)malloc(DEFAULT_ELEM_LENGTH);
 	*s = 0;
 	// *s = 0 的替代方案：memset(s, 0, len);
-	printf("SqList[");
+	printf("SqList(length:%d)[",L->length);
 	for (int i = 0, len = L->length; i <= len -1; i++){
 		/*_itoa(L->elem[i], s, 10);
 		if (strlen(s) > 6) {
