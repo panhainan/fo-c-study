@@ -6,6 +6,6 @@ void testSequenceList();
 //测试线性链表（单链表）
 void testLinkList();
 void main() {
-	testLinkList();
+	testSequenceList();
 }
 
