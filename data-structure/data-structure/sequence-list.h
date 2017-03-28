@@ -9,7 +9,7 @@ Status（操作结果）:
 #define FAIL_EMPTY -1	//操作失败（数组为空）
 #define FAIL 0		//操作失败
 #define SUCCESS 1	//操作成功
-#define OVERFOLW -1 //定义 -1 为 OVERFOLW 错误
+#define OVERFLOW -1 //定义 -1 为 OVERFOLW 错误
 #define DEFAULT_CAPACITY 10			//默认初始容量大小
 #define CAPACITY_INCREAM_MULTPLE 1.5	//默认扩容倍数
 
