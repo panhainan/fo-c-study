@@ -6,10 +6,10 @@
 
 SqList newSqList() {
 	SqList L = (SqList)malloc(sizeof(SqList));
-	if (!L) exit(OVERFOLW);
+	if (!L) exit(OVERFLOW);
 	//如果分配成功则返回指向被分配内存的指针(此存储区中的初始值不确定)，否则返回空指针NULL。
 	L->elem = (ElemType *)malloc(DEFAULT_CAPACITY * sizeof(ElemType));
-	if (!L->elem) exit(OVERFOLW);
+	if (!L->elem) exit(OVERFLOW);
 	L->length = 0;
 	L->capacity = DEFAULT_CAPACITY;
 	return L;
@@ -18,7 +18,7 @@ void increamSqListCapacity(SqList L) {
 	if (L->length >= L->capacity) {
 		L->capacity = L->capacity + DEFAULT_CAPACITY * CAPACITY_INCREAM_MULTPLE;
 		L->elem = (ElemType *)realloc(L->elem, L->capacity * sizeof(ElemType));
-		if (!L->elem) exit(OVERFOLW);
+		if (!L->elem) exit(OVERFLOW);
 	}
 }
 Status isSqListEmpty(SqList L) {
