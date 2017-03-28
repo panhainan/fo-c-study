@@ -2,7 +2,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include"sequence-stack.h"
-testSequenceStack() {
+void testSequenceStack() {
 	SqStack S;
 	initStack(&S);
 	SElemType e = (SElemType)malloc(sizeof(SElemType));
@@ -24,4 +24,8 @@ testSequenceStack() {
 	pop(&S, &e);
 	length(&S);
 	destroyStack(&S);
+}
+int _10conversion(int num,int newRadix);
+void testSequenceStackApp() {
+	_10conversion(1348, 8);
 }

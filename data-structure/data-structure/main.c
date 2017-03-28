@@ -10,8 +10,10 @@ void testStaticList();
 
 //≤‚ ‘À≥–Ú’ª
 void testSequenceStack();
+void testSequenceStackApp();
 void main() {
-	testSequenceStack();
+	//testSequenceStack();
+	testSequenceStackApp();
 
 }
 
