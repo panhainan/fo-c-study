@@ -5,7 +5,13 @@
 void testSequenceList();
 //≤‚ ‘œﬂ–‘¡¥±Ì£®µ•¡¥±Ì£©
 void testLinkList();
+//≤‚ ‘œﬂ–‘æ≤Ã¨¡¥±Ì
+void testStaticList();
+
+//≤‚ ‘À≥–Ú’ª
+void testSequenceStack();
 void main() {
-	testSequenceList();
+	testSequenceStack();
+
 }
 
