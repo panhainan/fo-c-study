@@ -10,7 +10,8 @@ typedef struct {
 	RedType r[MAXSIZE + 1];	//r[0]闲置或用作哨兵单元
 	int length;	//顺序表长度
 }SqList;	//顺序表类型
-//*********希尔插入排序***********
+//*********插入排序**********************
+//*********希尔插入排序(不稳定)***********
 void sheel_insert_sort(SqList *L) {
 	int i, j, dk;
 	int len = L->length;
@@ -25,7 +26,7 @@ void sheel_insert_sort(SqList *L) {
 		}
 	}
 }
-//*********折半插入排序***********
+//*********折半插入排序(稳定)***********
 void half_insert_sort(SqList *L) {
 	int i, j, low, high, mid, len = L->length;
 	for (i = 2; i <= len; i++) {
@@ -44,7 +45,7 @@ void half_insert_sort(SqList *L) {
 		L->r[high + 1]= L->r[0];	//插入到正确位置
 	}
 }
-//*********直接插入排序***********
+//*********直接插入排序(稳定)***********
 void direct_insert_sort(SqList *L) {
 	int i, j, len = L->length;
 	for (i = 2; i <= len; i++) {
@@ -59,7 +60,7 @@ void direct_insert_sort(SqList *L) {
 	}
 };
 
-void main() {
+void insert_sort_test() {
 	int length = 8;
 	SqList L = { 
 		{ 
