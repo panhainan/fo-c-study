@@ -170,7 +170,7 @@ void quick_sort(SqList *L) {
 	//quick_sort_2(L, 1, L->length - 1);
 };//****************øÏÀŸ≈≈–Ú-end****************
 
-void main() {
+void exchange_sort() {
 	SqList L1 = { { 0,21, 32,46, 40, 80, 69, 90, 94 }, 9 }; 
 	SqList L = { { 0,25, 84,21,47,15, 27,68, 35,20 }, 10 };
 	SqList L3 = { { 0, 46, 79,56, 38,40, 84 }, 7 };
