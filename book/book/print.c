@@ -9,7 +9,7 @@ test_scanf() {
 test_print() {
 	printf("sfdsdfsdfsd");
 	printf("\n");
-	printf("sdfd%%afdasfd");	//Óöµ½×Ö·û´®ÖĞÓĞµ¥´¿ÒâÒåÉÏµÄ% £¬ ÔòÓÃ%%Ìæ´ú
+	printf("sdfd%%afdasfd");	//é‡åˆ°å­—ç¬¦ä¸²ä¸­æœ‰å•çº¯æ„ä¹‰ä¸Šçš„% ï¼Œ åˆ™ç”¨%%æ›¿ä»£
 	printf("\n");
 	printf("sdfd*sdfsdf");
 	printf("\n");

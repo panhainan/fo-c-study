@@ -33,7 +33,7 @@ count_words() {
 		}
 
 	}
-	printf("µ¥´ÊÊı£º%d\n", nw);
+	printf("å•è¯æ•°ï¼š%d\n", nw);
 }
 
 many_space_to_one() {
@@ -81,5 +81,5 @@ count_character() {
 			++nt;
 		++nc;
 	}
-	printf("×Ö·ûÊı£º%4d\tĞĞÊı£º%4d\t¿Õ¸ñÊı£º%4d\tÖÆ±í·ûÊı£º%4d\n",nc,nl,ns,nt);
+	printf("å­—ç¬¦æ•°ï¼š%4d\tè¡Œæ•°ï¼š%4d\tç©ºæ ¼æ•°ï¼š%4d\tåˆ¶è¡¨ç¬¦æ•°ï¼š%4d\n",nc,nl,ns,nt);
 };

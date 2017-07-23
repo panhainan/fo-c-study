@@ -1,7 +1,7 @@
 #include<stdio.h>
 double power(int a, int x) {
 	if (a <= 0 || a == 1) {
-		printf("错误a=%d: 参数a必须满足(a>0且a!=1) !\n", a);
+		printf("閿欒a=%d: 鍙傛暟a蹇呴』婊¤冻(a>0涓攁!=1) !\n", a);
 		return -1;
 	}
 	double result=1.0;
@@ -15,6 +15,6 @@ double power(int a, int x) {
 			result = result / a;
 		}
 	}
-	printf("注意: 参数x建议为正整数,对于负整数的计算精度不能保证!\n");
+	printf("娉ㄦ剰: 鍙傛暟x寤鸿涓烘鏁存暟,瀵逛簬璐熸暣鏁扮殑璁＄畻绮惧害涓嶈兘淇濊瘉!\n");
 	return result;
 }

@@ -1,5 +1,5 @@
 #include<stdio.h>
-/*ÕûĞÍÊı¾İ½»»»£¬Ö¸ÕëÊµÏÖ*/
+/*æ•´å‹æ•°æ®äº¤æ¢ï¼ŒæŒ‡é’ˆå®ç°*/
 void swap(int *x,int *y) {
 	int temp = *x;
 	*x = *y;

@@ -40,10 +40,10 @@ void chapter01() {
 	double result = power(a, x);
 	if (result > 0) {
 		if (x >= 0) {
-			printf("%dµÄ%d´Î·½µÈÓÚ%0.0lf\n", a, x, result);
+			printf("%dçš„%dæ¬¡æ–¹ç­‰äº%0.0lf\n", a, x, result);
 		}
 		else {
-			printf("%dµÄ%d´Î·½µÈÓÚ%0.12lf\n", a, x, result);
+			printf("%dçš„%dæ¬¡æ–¹ç­‰äº%0.12lf\n", a, x, result);
 		}
 	}
 	*/
@@ -101,7 +101,7 @@ main() {
 	//chapter02();
 
 
-	//pointer();
+	pointer();
 	//array();
 
 	//test_point();
@@ -109,12 +109,12 @@ main() {
 
 	//test_print();
 	//test_sprint();
-	test_scanf();
+	//test_scanf();
 }
 /*
-ÃüÁîĞĞ²ÎÊı³ÌĞò1 
-ÃüÁîĞĞÊäÈë£ºbook c pintor
-Êä³ö£ºc pintor
+å‘½ä»¤è¡Œå‚æ•°ç¨‹åº1 
+å‘½ä»¤è¡Œè¾“å…¥ï¼šbook c pintor
+è¾“å‡ºï¼šc pintor
 */
 /*
 main(int argc, char *argv[]) {
@@ -128,9 +128,9 @@ main(int argc, char *argv[]) {
 */
 
 /*
-ÃüÁîĞĞ²ÎÊı³ÌĞò2
-ÃüÁîĞĞÊäÈë£ºbook c pintor
-Êä³ö£ºc pintor
+å‘½ä»¤è¡Œå‚æ•°ç¨‹åº2
+å‘½ä»¤è¡Œè¾“å…¥ï¼šbook c pintor
+è¾“å‡ºï¼šc pintor
 */
 /*
 main(int argc, char *argv[]) {

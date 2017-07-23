@@ -14,11 +14,11 @@ struct point make_point(int x, int y) {
 }
 void make_third_point(int x, int y,int z) {
 	/*
-		Ê¹ÓÃ
+		ä½¿ç”¨
 			struct {
 			int x, y, z;
 			} *third;
-		ÕâÖÖ·½Ê½ÉùÃ÷½á¹¹Ìå£¬Ê¹ÓÃthird->x»òÕß(*third).x·½Ê½¸³Öµ
+		è¿™ç§æ–¹å¼å£°æ˜ç»“æ„ä½“ï¼Œä½¿ç”¨third->xæˆ–è€…(*third).xæ–¹å¼èµ‹å€¼
 	*/
 	//(*third).x = x;
 	//(*third).y = y;

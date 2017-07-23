@@ -2,5 +2,5 @@
 hello(){
 	printf("hello, world!\n");
 	printf("I'm Panhainan.F\cO\n");
-	printf("hello, world!\b");//  \b ±íÊ¾»ØÍË·û
+	printf("hello, world!\b");//  \b è¡¨ç¤ºå›žé€€ç¬¦
 }

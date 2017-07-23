@@ -1,10 +1,16 @@
 #include<stdio.h>
+#include<stdlib.h>
 test() {
 	char *arr[] = { "abc","string","hello" };
-	char *p = arr[0];//arr[0] ÊÇÒ»¸ö×Ö·ûÖ¸Õë,*pÊÇÖ¸¸ÃÖ¸ÕëÖ¸ÏòµÄµÚ0ĞĞÎÄ±¾ĞĞµÄÊ××Ö·û
-	
 	printf("%s\n", arr[0]);
-	printf("%c\n", *p);
+	//free(arr[0]);
+
+
+
+	//char *p = arr[0];//arr[0] æ˜¯ä¸€ä¸ªå­—ç¬¦æŒ‡é’ˆ,*pæ˜¯æŒ‡è¯¥æŒ‡é’ˆæŒ‡å‘çš„ç¬¬0è¡Œæ–‡æœ¬è¡Œçš„é¦–å­—ç¬¦
+	
+	
+	/*printf("%c\n", *p);
 	printf("%s\n", p);
 
 	printf("-------------\n");
@@ -13,5 +19,5 @@ test() {
 	printf("%c\n", *q);
 	printf("%s\n", q);
 	
-	printf("%d\n", (p == q));
+	printf("%d\n", (p == q));*/
 }
