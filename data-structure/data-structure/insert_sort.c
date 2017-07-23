@@ -1,61 +1,61 @@
 #include<stdio.h>
-#define MAXSIZE 20	//¶¨ÒåË³Ğò±í×î´ó³¤¶È
-typedef int KeyType;	//¹Ø¼ü×ÖÀàĞÍ
-typedef char InfoType;	//ÆäËûÊı¾İÏîÀàĞÍ
+#define MAXSIZE 20	//å®šä¹‰é¡ºåºè¡¨æœ€å¤§é•¿åº¦
+typedef int KeyType;	//å…³é”®å­—ç±»å‹
+typedef char InfoType;	//å…¶ä»–æ•°æ®é¡¹ç±»å‹
 typedef struct {
-	KeyType key;	//¹Ø¼ü×ÖÏî
-	InfoType otherinfo;	//ÆäËûÊı¾İÏî
+	KeyType key;	//å…³é”®å­—é¡¹
+	InfoType otherinfo;	//å…¶ä»–æ•°æ®é¡¹
 } RedType;
 typedef struct {
-	RedType r[MAXSIZE + 1];	//r[0]ÏĞÖÃ»òÓÃ×÷ÉÚ±øµ¥Ôª
-	int length;	//Ë³Ğò±í³¤¶È
-}SqList;	//Ë³Ğò±íÀàĞÍ
-//*********²åÈëÅÅĞò**********************
-//*********Ï£¶û²åÈëÅÅĞò(²»ÎÈ¶¨)***********
+	RedType r[MAXSIZE + 1];	//r[0]é—²ç½®æˆ–ç”¨ä½œå“¨å…µå•å…ƒ
+	int length;	//é¡ºåºè¡¨é•¿åº¦
+}SqList;	//é¡ºåºè¡¨ç±»å‹
+//*********æ’å…¥æ’åº**********************
+//*********å¸Œå°”æ’å…¥æ’åº(ä¸ç¨³å®š)***********
 void sheel_insert_sort(SqList *L) {
 	int i, j, dk;
 	int len = L->length;
-	for (dk = len / 2; dk >= 1; dk = dk / 2) {	//Ã¿É¨ÃèÒ»´Î£¬¶ÔÔöÁ¿dk½øĞĞÒ»´ÎÕÛ°ë´¦Àí´¦Àí
+	for (dk = len / 2; dk >= 1; dk = dk / 2) {	//æ¯æ‰«æä¸€æ¬¡ï¼Œå¯¹å¢é‡dkè¿›è¡Œä¸€æ¬¡æŠ˜åŠå¤„ç†å¤„ç†
 		for (i = dk + 1; i <= len; ++i) {
 			if (L->r[i].key < L->r[i - dk].key) {
-				L->r[0]=L->r[i];	//Ôİ´æÔÚr[0]
+				L->r[0]=L->r[i];	//æš‚å­˜åœ¨r[0]
 				for (j = i - dk; j > 0 && L->r[0].key < L->r[j].key; j -= dk)
-					L->r[j + dk] = L->r[j];	//¼ÇÂ¼ºóÒÆ
-				L->r[j + dk] = L->r[0];	//²åÈëµ½ÕıÈ·Î»ÖÃ
+					L->r[j + dk] = L->r[j];	//è®°å½•åç§»
+				L->r[j + dk] = L->r[0];	//æ’å…¥åˆ°æ­£ç¡®ä½ç½®
 			}
 		}
 	}
 }
-//*********ÕÛ°ë²åÈëÅÅĞò(ÎÈ¶¨)***********
+//*********æŠ˜åŠæ’å…¥æ’åº(ç¨³å®š)***********
 void half_insert_sort(SqList *L) {
 	int i, j, low, high, mid, len = L->length;
 	for (i = 2; i <= len; i++) {
-		L->r[0] = L->r[i];	//Ôİ´æÔÚr[0]
+		L->r[0] = L->r[i];	//æš‚å­˜åœ¨r[0]
 		low = 1;
 		high = i - 1;
 		while (low <= high) {
-			mid = (low + high) / 2;	//ÕÛ°ë
+			mid = (low + high) / 2;	//æŠ˜åŠ
 			if (L->r[mid].key > L->r[0].key)	
-				high = mid - 1;	//²åÈëµãÔÚµÍ°ëÇø
+				high = mid - 1;	//æ’å…¥ç‚¹åœ¨ä½åŠåŒº
 			else
-				low = mid + 1;	//²åÈëµãÔÚ¸ß°ëÇø
+				low = mid + 1;	//æ’å…¥ç‚¹åœ¨é«˜åŠåŒº
 		}
 		for (j = i - 1; j >= high + 1; --j)
-			L->r[j + 1] = L->r[j];	//¼ÇÂ¼ºóÒÆ
-		L->r[high + 1]= L->r[0];	//²åÈëµ½ÕıÈ·Î»ÖÃ
+			L->r[j + 1] = L->r[j];	//è®°å½•åç§»
+		L->r[high + 1]= L->r[0];	//æ’å…¥åˆ°æ­£ç¡®ä½ç½®
 	}
 }
-//*********Ö±½Ó²åÈëÅÅĞò(ÎÈ¶¨)***********
+//*********ç›´æ¥æ’å…¥æ’åº(ç¨³å®š)***********
 void direct_insert_sort(SqList *L) {
 	int i, j, len = L->length;
 	for (i = 2; i <= len; i++) {
 		if (L->r[i].key < L->r[i-1].key) {
-			L->r[0] = L->r[i];		//L->r[0]ÓÃ×÷ÉÚ±øÎ»
+			L->r[0] = L->r[i];		//L->r[0]ç”¨ä½œå“¨å…µä½
 			L->r[i] = L->r[i - 1];
 			for (j = i - 2; L->r[0].key < L->r[j].key; --j) {
-				L->r[j + 1] = L->r[j];		//¼ÇÂ¼ºóÒÆ
+				L->r[j + 1] = L->r[j];		//è®°å½•åç§»
 			}
-			L->r[j + 1] = L->r[0];			//²åÈëµ½ÕıÈ·Î»ÖÃ
+			L->r[j + 1] = L->r[0];			//æ’å…¥åˆ°æ­£ç¡®ä½ç½®
 		}
 	}
 };

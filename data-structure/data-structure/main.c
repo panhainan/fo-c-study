@@ -1,19 +1,19 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 
-//²âÊÔÏßĞÔË³Ğò±í
+//æµ‹è¯•çº¿æ€§é¡ºåºè¡¨
 void testSequenceList();
-//²âÊÔÏßĞÔÁ´±í£¨µ¥Á´±í£©
+//æµ‹è¯•çº¿æ€§é“¾è¡¨ï¼ˆå•é“¾è¡¨ï¼‰
 void testLinkList();
-//²âÊÔÏßĞÔ¾²Ì¬Á´±í
+//æµ‹è¯•çº¿æ€§é™æ€é“¾è¡¨
 void testStaticList();
 
-//²âÊÔË³ĞòÕ»
+//æµ‹è¯•é¡ºåºæ ˆ
 void testSequenceStack();
 void testSequenceStackApp();
-void main() {
-	//testSequenceStack();
-	testSequenceStackApp();
-
-}
+//void main() {
+//	//testSequenceStack();
+//	testSequenceStackApp();
+//
+//}
 

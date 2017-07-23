@@ -5,18 +5,18 @@ typedef struct {
 	ElemType elem[MAXSIZE];
 	int length;
 } SqList;
-//Ñ¡ÔñÅÅĞò
-//¼òµ¥Ñ¡ÔñÅÅĞò
+//é€‰æ‹©æ’åº
+//ç®€å•é€‰æ‹©æ’åº
 void simple_select_sort(ElemType Elem[], int n) {
 	int i, j, min;
 	ElemType temp;
-	for (i = 0; i < n - 1; i++) {	//Ò»¹²½øĞĞn-1ÌË
-		min = i;	//¼ÇÂ¼×îĞ¡ÔªËØÎ»ÖÃ£¬Ê¹ÓÃÃ¿´ÎÑ­»·µÄµÚÒ»¸öÔªËØ
-		for (j = i + 1; j < n; j++) {	//Ñ­»·ÔÚi~n-1Î»ÖÃÖĞ×îĞ¡µÄÔªËØ
+	for (i = 0; i < n - 1; i++) {	//ä¸€å…±è¿›è¡Œn-1è¶Ÿ
+		min = i;	//è®°å½•æœ€å°å…ƒç´ ä½ç½®ï¼Œä½¿ç”¨æ¯æ¬¡å¾ªç¯çš„ç¬¬ä¸€ä¸ªå…ƒç´ 
+		for (j = i + 1; j < n; j++) {	//å¾ªç¯åœ¨i~n-1ä½ç½®ä¸­æœ€å°çš„å…ƒç´ 
 			if (Elem[j] < Elem[min])
-				min = j;	//¸üĞÂ×îĞ¡ÔªËØÎ»ÖÃ
+				min = j;	//æ›´æ–°æœ€å°å…ƒç´ ä½ç½®
 		}
-		if (min != i) {	//ÓëÃ¿´ÎÑ­»·µÄµÚÒ»¸öÔªËØ½»»»Î»ÖÃ
+		if (min != i) {	//ä¸æ¯æ¬¡å¾ªç¯çš„ç¬¬ä¸€ä¸ªå…ƒç´ äº¤æ¢ä½ç½®
 			temp = Elem[i];
 			Elem[i] = Elem[min];
 			Elem[min] = temp;
@@ -24,11 +24,11 @@ void simple_select_sort(ElemType Elem[], int n) {
 		for (int l = 0; l < n; l++) {
 			printf("%d, ", Elem[l]);
 		}
-		printf("(µÚ%dÌË£©\n",i+1);
+		printf("(ç¬¬%dè¶Ÿï¼‰\n",i+1);
 	}
 }
 
-//¶ÑÅÅĞò1
+//å †æ’åº1
 void heap_adjust(SqList *L, int s, int m) {
 	ElemType rc = L->elem[s];
 	int j;
@@ -49,7 +49,7 @@ void heap_adjust(SqList *L, int s, int m) {
 void heap_sort(SqList *L) {
 	int i;
 	for (i = (L->length-1) / 2; i > 0; --i) {
-		heap_adjust(L, i, L->length);
+		heap_adjust(L, i, L->length-1);
 	}
 	for (i = L->length-1; i > 1; --i) {
 		L->elem[0] = L->elem[1];
@@ -59,7 +59,7 @@ void heap_sort(SqList *L) {
 	}
 }
 
-//¶ÑÅÅĞò2
+//å †æ’åº2
 
 void adjust_down(ElemType A[], int k, int len) {
 	int i;
@@ -96,16 +96,16 @@ void heap_sort2(SqList *L) {
 		adjust_down(L->elem, 1, i - 1);
 	}
 }
-void main() {
+void select_sort() {
 	SqList S = { { 0,87,45,78,32,17,65,53,9,21,56 } ,11 };
 	for (int i = 1; i < S.length; i++) {
 		printf("%d, ", S.elem[i]);
 	}
-	printf("(ÅÅĞòÇ°£©\n");
+	printf("(æ’åºå‰ï¼‰\n");
 	//simple_select_sort(S.elem,S.length);
-	heap_sort2(&S);
+	heap_sort(&S);
 	for (int i = 1; i < S.length; i++) {
 		printf("%d, ", S.elem[i]);
 	}
-	printf("(ÅÅĞòºó£©\n");
+	printf("(æ’åºåï¼‰\n");
 }

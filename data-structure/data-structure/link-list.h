@@ -1,10 +1,10 @@
-#define FALSE 0		//Õæ
-#define TRUE 1		//¼Ù
-#define FAIL_NULL  -3	//²Ù×÷Ê§°Ü£¨Î´³õÊ¼»¯LinkList£©
-#define FAIL_LIMIT -2	//²Ù×÷Ê§°Ü£¨²ÎÊıÔ½½ç£©
-#define FAIL_EMPTY -1	//²Ù×÷Ê§°Ü£¨Êı×éÎª¿Õ£©
-#define FAIL 0		//²Ù×÷Ê§°Ü
-#define SUCCESS 1	//²Ù×÷³É¹¦
+#define FALSE 0		//çœŸ
+#define TRUE 1		//å‡
+#define FAIL_NULL  -3	//æ“ä½œå¤±è´¥ï¼ˆæœªåˆå§‹åŒ–LinkListï¼‰
+#define FAIL_LIMIT -2	//æ“ä½œå¤±è´¥ï¼ˆå‚æ•°è¶Šç•Œï¼‰
+#define FAIL_EMPTY -1	//æ“ä½œå¤±è´¥ï¼ˆæ•°ç»„ä¸ºç©ºï¼‰
+#define FAIL 0		//æ“ä½œå¤±è´¥
+#define SUCCESS 1	//æ“ä½œæˆåŠŸ
 typedef int ElemType;
 typedef int Status;
 typedef struct LinkListNode{
@@ -13,29 +13,29 @@ typedef struct LinkListNode{
 } LNode, *LinkList;
 
 
-/*	ĞÂ½¨ÏßĞÔ±í£¨´øÍ·½áµã£¬Í·½áµã´æ´¢µÄÖµÎªÏßĞÔ±í³¤¶È£©	*/
+/*	æ–°å»ºçº¿æ€§è¡¨ï¼ˆå¸¦å¤´ç»“ç‚¹ï¼Œå¤´ç»“ç‚¹å­˜å‚¨çš„å€¼ä¸ºçº¿æ€§è¡¨é•¿åº¦ï¼‰	*/
 LinkList newLinkList();
-/*	ÅĞ¶ÏÏßĞÔ±íÊÇ·ñÎª¿Õ	*/
+/*	åˆ¤æ–­çº¿æ€§è¡¨æ˜¯å¦ä¸ºç©º	*/
 Status isLinkListEmpty(LinkList L);
-/*	ÅĞ¶ÏÎ»ÖÃÊÇ·ñÔÚÏßĞÔ±í·¶Î§ÄÚ	*/
+/*	åˆ¤æ–­ä½ç½®æ˜¯å¦åœ¨çº¿æ€§è¡¨èŒƒå›´å†…	*/
 Status isInLinkListLimit(LinkList L, int position);
-/*	ÔÚÏßĞÔ±íÄ©Î²²åÈëÔªËØ£¨Î²²å·¨£©	*/
+/*	åœ¨çº¿æ€§è¡¨æœ«å°¾æ’å…¥å…ƒç´ ï¼ˆå°¾æ’æ³•ï¼‰	*/
 Status addLinkList(LinkList L, ElemType elem);
-/*	ÔÚÏßĞÔ±íÍ·²¿²åÈëÔªËØ£¨Í·²å·¨£©	*/
+/*	åœ¨çº¿æ€§è¡¨å¤´éƒ¨æ’å…¥å…ƒç´ ï¼ˆå¤´æ’æ³•ï¼‰	*/
 Status addLinkListHead(LinkList L, ElemType elem);
-/*	ÔÚÏßĞÔ±íÖ¸¶¨Î»ÖÃ²åÈëÔªËØ	*/
+/*	åœ¨çº¿æ€§è¡¨æŒ‡å®šä½ç½®æ’å…¥å…ƒç´ 	*/
 Status addLinkListI(LinkList L, ElemType elem, int position);
-/*	ĞŞ¸ÄÏßĞÔ±íÖ¸¶¨Î»ÖÃµÄÔªËØ	*/
+/*	ä¿®æ”¹çº¿æ€§è¡¨æŒ‡å®šä½ç½®çš„å…ƒç´ 	*/
 Status setLinkList(LinkList L, ElemType elem, int position);
-/*	É¾³ıÏßĞÔ±íÄ©Î²µÄÔªËØ	*/
+/*	åˆ é™¤çº¿æ€§è¡¨æœ«å°¾çš„å…ƒç´ 	*/
 Status removeLinkList(LinkList L, ElemType *elem);
-/*	É¾³ıÏßĞÔ±íÖ¸¶¨Î»ÖÃµÄÔªËØ	*/
+/*	åˆ é™¤çº¿æ€§è¡¨æŒ‡å®šä½ç½®çš„å…ƒç´ 	*/
 Status removeLinkListI(LinkList L, ElemType *elem, int position);
-/*	»ñÈ¡ÏßĞÔ±íÄ©Î²µÄÔªËØ	*/
+/*	è·å–çº¿æ€§è¡¨æœ«å°¾çš„å…ƒç´ 	*/
 Status lastLinkList(LinkList L, ElemType *elem);
-/*	»ñÈ¡ÏßĞÔ±íÖ¸¶¨Î»ÖÃ(Êµ¼ÊÎªÊı×éposition-1Î»ÖÃ)µÄÔªËØ	*/
+/*	è·å–çº¿æ€§è¡¨æŒ‡å®šä½ç½®(å®é™…ä¸ºæ•°ç»„position-1ä½ç½®)çš„å…ƒç´ 	*/
 Status getLinkList(LinkList L, ElemType *elem, int position);
-/*	Çå¿ÕÏßĞÔ±í	*/
+/*	æ¸…ç©ºçº¿æ€§è¡¨	*/
 Status freeLinkList(LinkList L);
-/*	´òÓ¡ÏßĞÔ±í(×¢Òâ£ºÕâÀïÖ»ÊµÏÖElemType=intµÄ´òÓ¡£¬¶ÔÓÚÆäËûÀàĞÍµÄÔòĞèÒª×ÔĞĞĞŞ¸Äprintº¯ÊıµÄ´úÂë¡£)	*/
+/*	æ‰“å°çº¿æ€§è¡¨(æ³¨æ„ï¼šè¿™é‡Œåªå®ç°ElemType=intçš„æ‰“å°ï¼Œå¯¹äºå…¶ä»–ç±»å‹çš„åˆ™éœ€è¦è‡ªè¡Œä¿®æ”¹printå‡½æ•°çš„ä»£ç ã€‚)	*/
 Status printLinkList(LinkList L);

@@ -4,8 +4,8 @@
 #include"link-list.h"
 LinkList newLinkList() {
 	LinkList L = (LinkList)malloc(sizeof(LinkList));
-	L->next = NULL;//½¨Á¢Í·½áµã
-	L->data = 0;//Í·½áµãµÄÖµÎªÏßÐÔ±íµÄ³¤¶È
+	L->next = NULL;//å»ºç«‹å¤´ç»“ç‚¹
+	L->data = 0;//å¤´ç»“ç‚¹çš„å€¼ä¸ºçº¿æ€§è¡¨çš„é•¿åº¦
 	return L;
 }
 Status isLinkListNull(LinkList L) {

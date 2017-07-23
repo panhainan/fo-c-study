@@ -13,13 +13,13 @@ Status initStaticLinkList(StaticLinkList L) {
 
 int mallocStaticLinkList(StaticLinkList L) {
 	int index = L[0].cur;
-	//±¸ÓÃÁ´±í·Ç¿Õ£¬Ôò·µ»Ø·ÖÅäµÄ½ÚµãÏÂ±ê£¬·ñÔò·µ»Ø0
+	//å¤‡ç”¨é“¾è¡¨éç©ºï¼Œåˆ™è¿”å›åˆ†é…çš„èŠ‚ç‚¹ä¸‹æ ‡ï¼Œå¦åˆ™è¿”å›0
 	if (L[0].cur)
 		L[0].cur = L[index].cur;
 	return index;
 }
 void freeStaticLinkList(StaticLinkList L, int position) {
-	//½ö½öÊÇÊÍ·ÅÕâ¸öÎ»ÖÃµ½±¸ÓÃÁ´±í£¬²¢Ã»ÓĞÍê³É¶Ô¸ÃÎ»ÖÃÔªËØµÄÉ¾³ı²Ù×÷ÉÆºó¡£
+	//ä»…ä»…æ˜¯é‡Šæ”¾è¿™ä¸ªä½ç½®åˆ°å¤‡ç”¨é“¾è¡¨ï¼Œå¹¶æ²¡æœ‰å®Œæˆå¯¹è¯¥ä½ç½®å…ƒç´ çš„åˆ é™¤æ“ä½œå–„åã€‚
 	L[position].cur = L[0].cur;
 	L[0].cur = position;
 }

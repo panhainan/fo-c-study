@@ -1,76 +1,76 @@
 #include<stdio.h>
 #include<stdlib.h>
-#define MAXSIZE 20	//¶¨ÒåË³Ðò±í×î´ó³¤¶È
+#define MAXSIZE 20	//å®šä¹‰é¡ºåºè¡¨æœ€å¤§é•¿åº¦
 #define TRUE 1  
 #define FALSE 0 
-typedef int KeyType;	//¹Ø¼ü×ÖÀàÐÍ
-typedef char InfoType;	//ÆäËûÊý¾ÝÏîÀàÐÍ
+typedef int KeyType;	//å…³é”®å­—ç±»åž‹
+typedef char InfoType;	//å…¶ä»–æ•°æ®é¡¹ç±»åž‹
 typedef struct {
-	KeyType key;	//¹Ø¼ü×ÖÏî
-	//InfoType otherinfo;	//ÆäËûÊý¾ÝÏî
+	KeyType key;	//å…³é”®å­—é¡¹
+	//InfoType otherinfo;	//å…¶ä»–æ•°æ®é¡¹
 } RedType;
 typedef struct {
-	RedType r[MAXSIZE + 1];	//r[0]ÏÐÖÃ»òÓÃ×÷ÉÚ±øµ¥Ôª
-	int length;	//Ë³Ðò±í³¤¶È
-}SqList;	//Ë³Ðò±íÀàÐÍ
-//*********½»»»ÅÅÐò£¨½Ô²»ÎÈ¶¨£©*********
-//*********Ã°ÅÝÅÅÐò-begin***********
+	RedType r[MAXSIZE + 1];	//r[0]é—²ç½®æˆ–ç”¨ä½œå“¨å…µå•å…ƒ
+	int length;	//é¡ºåºè¡¨é•¿åº¦
+}SqList;	//é¡ºåºè¡¨ç±»åž‹
+//*********äº¤æ¢æŽ’åºï¼ˆçš†ä¸ç¨³å®šï¼‰*********
+//*********å†’æ³¡æŽ’åº-begin***********
 void bubble_sort(SqList *L) {
 	int i, j, flag, len = L->length;
 	for (i = 1; i < len - 1; i++) {
-		flag = FALSE; //ÓÃÀ´±êÊ¶±¾ÌËÃ°ÅÝÊÇ·ñ·¢Éú½»»»µÄ±êÖ¾
-		for (j = len - 1; j > i; j--) {	//Ò»ÌËÃ°ÅÝ¹ý³Ì
-			if (L->r[j - 1].key > L->r[j].key) {	//ÈôÎªÄæÐò
-				//½øÐÐ½»»»
-				L->r[0] = L->r[j - 1];	//ÔÝ´æÔÚr[0]
+		flag = FALSE; //ç”¨æ¥æ ‡è¯†æœ¬è¶Ÿå†’æ³¡æ˜¯å¦å‘ç”Ÿäº¤æ¢çš„æ ‡å¿—
+		for (j = len - 1; j > i; j--) {	//ä¸€è¶Ÿå†’æ³¡è¿‡ç¨‹
+			if (L->r[j - 1].key > L->r[j].key) {	//è‹¥ä¸ºé€†åº
+				//è¿›è¡Œäº¤æ¢
+				L->r[0] = L->r[j - 1];	//æš‚å­˜åœ¨r[0]
 				L->r[j - 1] = L->r[j];
 				L->r[j] = L->r[0];
 				flag = TRUE;
 			}
 		}
-		//²âÊÔ´úÂë,ÓÃÓÚ¹Û²ìÃ¿Ò»ÌËÅÅÐò½á¹û
+		//æµ‹è¯•ä»£ç ,ç”¨äºŽè§‚å¯Ÿæ¯ä¸€è¶ŸæŽ’åºç»“æžœ
 		
 		for (int m = 1; m < L->length; m++) {
 			printf("%d, ", L->r[m].key);
 		}
-		printf("(µÚ%dÌË)\n",i);
+		printf("(ç¬¬%dè¶Ÿ)\n",i);
 		
 		if (flag == FALSE) {
-			return;	//±¾ÌËÃ°ÅÝÃ»ÓÐ·¢Éú½»»»£¬ËµÃ÷±íÒÑ¾­ÓÐÐòÁË£¬½áÊøÅÅÐò
+			return;	//æœ¬è¶Ÿå†’æ³¡æ²¡æœ‰å‘ç”Ÿäº¤æ¢ï¼Œè¯´æ˜Žè¡¨å·²ç»æœ‰åºäº†ï¼Œç»“æŸæŽ’åº
 		}
 	}
-};//*********Ã°ÅÝÅÅÐò-end***********
+};//*********å†’æ³¡æŽ’åº-end***********
 
-//****************¿ìËÙÅÅÐò-begin****************
-//**********ÊàÅ¦»®·Öº¯Êý£¨ÖØµã£©**************
+//****************å¿«é€ŸæŽ’åº-begin****************
+//**********æž¢çº½åˆ’åˆ†å‡½æ•°ï¼ˆé‡ç‚¹ï¼‰**************
 int partition(SqList *L, int low, int high) {
-	//Ò»ÌËÅÅÐò¹ý³Ì
-	RedType pivot = L->r[low];	//ÉèÖÃµÚÒ»¸öÔªËØ×÷ÎªÊàÅ¦Öµ£¬¶Ô±í½øÐÐ»®·Ö£¨¿ìÅÅËã·¨µÄÐÔÄÜÓ°ÏìµÄ¹Ø¼üÖ®´¦£©
-	while (low < high) {	//Ñ­»·Ìø³öÌõ¼þ
+	//ä¸€è¶ŸæŽ’åºè¿‡ç¨‹
+	RedType pivot = L->r[low];	//è®¾ç½®ç¬¬ä¸€ä¸ªå…ƒç´ ä½œä¸ºæž¢çº½å€¼ï¼Œå¯¹è¡¨è¿›è¡Œåˆ’åˆ†ï¼ˆå¿«æŽ’ç®—æ³•çš„æ€§èƒ½å½±å“çš„å…³é”®ä¹‹å¤„ï¼‰
+	while (low < high) {	//å¾ªçŽ¯è·³å‡ºæ¡ä»¶
 		while (low < high && L->r[high].key >= pivot.key)
 			--high;
-		L->r[low] = L->r[high];	//½«±ÈÊàÅ¦ÖµÐ¡µÄÔªËØÒÆ¶¯µ½×ó¶Ë
+		L->r[low] = L->r[high];	//å°†æ¯”æž¢çº½å€¼å°çš„å…ƒç´ ç§»åŠ¨åˆ°å·¦ç«¯
 		while (low < high && L->r[low].key <= pivot.key)
 			++low;
-		L->r[high] = L->r[low];	//½«±ÈÊàÅ¦Öµ´óµÄÔªËØÒÆ¶¯µ½ÓÒ¶Ë
+		L->r[high] = L->r[low];	//å°†æ¯”æž¢çº½å€¼å¤§çš„å…ƒç´ ç§»åŠ¨åˆ°å³ç«¯
 	}
-	L->r[low] = pivot;	//ÊàÅ¦ÔªËØ´æ·Åµ½×îÖÕÎ»ÖÃ
+	L->r[low] = pivot;	//æž¢çº½å…ƒç´ å­˜æ”¾åˆ°æœ€ç»ˆä½ç½®
 
-	//²âÊÔ´úÂë,ÓÃÓÚ¹Û²ìÃ¿Ò»ÌËÅÅÐò½á¹û
+	//æµ‹è¯•ä»£ç ,ç”¨äºŽè§‚å¯Ÿæ¯ä¸€è¶ŸæŽ’åºç»“æžœ
 	
 	for (int i = 1; i < L->length; i++) {
 		printf("%d, ", L->r[i].key);
 	}
-	printf("(ÊàÅ¦Öµ£º%d)\n", pivot.key);
+	printf("(æž¢çº½å€¼ï¼š%d)\n", pivot.key);
 	
 
-	return low;	//·µ»Ø´æ·ÅÊàÅ¦µÄ×îÖÕÎ»ÖÃ
+	return low;	//è¿”å›žå­˜æ”¾æž¢çº½çš„æœ€ç»ˆä½ç½®
 }
-//**********µÝ¹é¿ìËÙÅÅÐò**************
+//**********é€’å½’å¿«é€ŸæŽ’åº**************
 void quick_sort_recurrence(SqList *L, int low, int high) {
-	if (low < high) {	//µÝ¹éÌø³öÌõ¼þ
-		int pivotpos = partition(L, low, high);	//»®·Ö
-		//ÒÀ´Î¶ÔÁ½¸ö×Ó±í½øÐÐµÝ¹éÅÅÐò
+	if (low < high) {	//é€’å½’è·³å‡ºæ¡ä»¶
+		int pivotpos = partition(L, low, high);	//åˆ’åˆ†
+		//ä¾æ¬¡å¯¹ä¸¤ä¸ªå­è¡¨è¿›è¡Œé€’å½’æŽ’åº
 		quick_sort_recurrence(L, low, pivotpos - 1);
 		quick_sort_recurrence(L, pivotpos + 1, high);
 	}
@@ -79,18 +79,18 @@ typedef struct {
 	int begin;
 	int end;
 }Limits_1[MAXSIZE];
-//Õë¶Ô·ÇµÝ¹é¿ìËÙÅÅÐòÊ¹ÓÃµÄ¸¨ÖúÕ»
+//é’ˆå¯¹éžé€’å½’å¿«é€ŸæŽ’åºä½¿ç”¨çš„è¾…åŠ©æ ˆ
 typedef struct {
 	Limits_1 limit;
 	int top;
 }LimitStack;
-//Õë¶Ô·ÇµÝ¹é¿ìËÙÅÅÐòÊ¹ÓÃµÄ¸¨Öú¶ÓÁÐ
+//é’ˆå¯¹éžé€’å½’å¿«é€ŸæŽ’åºä½¿ç”¨çš„è¾…åŠ©é˜Ÿåˆ—
 typedef struct {
 	Limits_1 limit;
 	int font;
 	int rear;
 }LimitQueue;
-//**********·ÇµÝ¹é¿ìËÙÅÅÐò£¨¸¨ÖúÕ»ÊµÏÖ£©**************
+//**********éžé€’å½’å¿«é€ŸæŽ’åºï¼ˆè¾…åŠ©æ ˆå®žçŽ°ï¼‰**************
 void quick_sort_1(SqList *L, int low, int high) {
 	int pivotpos;
 	LimitStack limit_stack;
@@ -110,7 +110,7 @@ void quick_sort_1(SqList *L, int low, int high) {
 				limit_stack.top++;
 			}
 			else {
-				printf("¸¨ÖúÕ»ÒÑÂú£¬ÇëÔö´ó¸¨ÖúÕ»µÄ³¤¶ÈºóÔÙ³¢ÊÔ£¡\n");
+				printf("è¾…åŠ©æ ˆå·²æ»¡ï¼Œè¯·å¢žå¤§è¾…åŠ©æ ˆçš„é•¿åº¦åŽå†å°è¯•ï¼\n");
 				return;
 			}
 			limit_stack.limit[limit_stack.top].begin = low;
@@ -120,7 +120,7 @@ void quick_sort_1(SqList *L, int low, int high) {
 				limit_stack.top++;
 			}
 			else {
-				printf("¸¨ÖúÕ»ÒÑÂú£¬ÇëÔö´ó¸¨ÖúÕ»µÄ³¤¶ÈºóÔÙ³¢ÊÔ£¡\n");
+				printf("è¾…åŠ©æ ˆå·²æ»¡ï¼Œè¯·å¢žå¤§è¾…åŠ©æ ˆçš„é•¿åº¦åŽå†å°è¯•ï¼\n");
 				return;
 			}
 			limit_stack.limit[limit_stack.top].begin = pivotpos + 1;
@@ -128,7 +128,7 @@ void quick_sort_1(SqList *L, int low, int high) {
 		}
 	}
 }
-//**********·ÇµÝ¹é¿ìËÙÅÅÐò£¨¸¨Öú¶ÓÁÐÊµÏÖ£¬¸ü¼ÓÌù½üµÝ¹é¿ìËÙÅÅÐòµÄÉ¨ÃèÅÅÐòÇé¿ö£©**************
+//**********éžé€’å½’å¿«é€ŸæŽ’åºï¼ˆè¾…åŠ©é˜Ÿåˆ—å®žçŽ°ï¼Œæ›´åŠ è´´è¿‘é€’å½’å¿«é€ŸæŽ’åºçš„æ‰«ææŽ’åºæƒ…å†µï¼‰**************
 void quick_sort_2(SqList *L, int low, int high) {
 	int pivotpos;
 	LimitQueue limit_queue;
@@ -150,7 +150,7 @@ void quick_sort_2(SqList *L, int low, int high) {
 			if ((limit_queue.rear + 1) % MAXSIZE != limit_queue.font ) {
 				limit_queue.rear = (limit_queue.rear + 1) % MAXSIZE;
 			}else {
-				printf("¸¨Öú¶ÓÁÐÒÑÂú£¬ÇëÔö´ó¸¨Öú¶ÓÁÐµÄ³¤¶ÈºóÔÙ³¢ÊÔ£¡\n");
+				printf("è¾…åŠ©é˜Ÿåˆ—å·²æ»¡ï¼Œè¯·å¢žå¤§è¾…åŠ©é˜Ÿåˆ—çš„é•¿åº¦åŽå†å°è¯•ï¼\n");
 				return;
 			}
 			limit_queue.limit[limit_queue.rear].begin = pivotpos + 1;
@@ -158,7 +158,7 @@ void quick_sort_2(SqList *L, int low, int high) {
 			if ((limit_queue.rear + 1) % MAXSIZE != limit_queue.font) {
 				limit_queue.rear = (limit_queue.rear + 1) % MAXSIZE;
 			}else {
-				printf("¸¨Öú¶ÓÁÐÒÑÂú£¬ÇëÔö´ó¸¨Öú¶ÓÁÐµÄ³¤¶ÈºóÔÙ³¢ÊÔ£¡\n");
+				printf("è¾…åŠ©é˜Ÿåˆ—å·²æ»¡ï¼Œè¯·å¢žå¤§è¾…åŠ©é˜Ÿåˆ—çš„é•¿åº¦åŽå†å°è¯•ï¼\n");
 				return;
 			}
 		}
@@ -168,7 +168,7 @@ void quick_sort(SqList *L) {
 	quick_sort_recurrence(L, 1, L->length-1);
 	//quick_sort_1(L, 1, L->length - 1);
 	//quick_sort_2(L, 1, L->length - 1);
-};//****************¿ìËÙÅÅÐò-end****************
+};//****************å¿«é€ŸæŽ’åº-end****************
 
 void exchange_sort() {
 	SqList L1 = { { 0,21, 32,46, 40, 80, 69, 90, 94 }, 9 }; 
@@ -182,12 +182,12 @@ void exchange_sort() {
 	for (int i = 1; i < L.length; i++) {
 		printf("%d, ", L.r[i].key);
 	}
-	printf("(ÅÅÐòÇ°)\n");
+	printf("(æŽ’åºå‰)\n");
 	//bubble_sort(&L);
 	quick_sort(&L);
 	for (int i = 1; i <  L.length; i++) {
 		printf("%d, ", L.r[i].key);
 	}
-	printf("(ÅÅÐòºó)\n");
+	printf("(æŽ’åºåŽ)\n");
 
 };

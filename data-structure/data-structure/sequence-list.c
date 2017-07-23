@@ -7,7 +7,7 @@
 SqList newSqList() {
 	SqList L = (SqList)malloc(sizeof(SqList));
 	if (!L) exit(OVERFLOW);
-	//Èç¹û·ÖÅä³É¹¦Ôò·µ»ØÖ¸Ïò±»·ÖÅäÄÚ´æµÄÖ¸Õë(´Ë´æ´¢ÇøÖÐµÄ³õÊ¼Öµ²»È·¶¨)£¬·ñÔò·µ»Ø¿ÕÖ¸ÕëNULL¡£
+	//å¦‚æžœåˆ†é…æˆåŠŸåˆ™è¿”å›žæŒ‡å‘è¢«åˆ†é…å†…å­˜çš„æŒ‡é’ˆ(æ­¤å­˜å‚¨åŒºä¸­çš„åˆå§‹å€¼ä¸ç¡®å®š)ï¼Œå¦åˆ™è¿”å›žç©ºæŒ‡é’ˆNULLã€‚
 	L->elem = (ElemType *)malloc(DEFAULT_CAPACITY * sizeof(ElemType));
 	if (!L->elem) exit(OVERFLOW);
 	L->length = 0;
@@ -105,7 +105,7 @@ Status clearSqList(SqList L) {
 Status printSqList(SqList L) {
 	char *s = (char *)malloc(DEFAULT_ELEM_LENGTH);
 	*s = 0;
-	// *s = 0 µÄÌæ´ú·½°¸£ºmemset(s, 0, len);
+	// *s = 0 çš„æ›¿ä»£æ–¹æ¡ˆï¼šmemset(s, 0, len);
 	printf("SqList(length:%d)[",L->length);
 	for (int i = 0, len = L->length; i <= len -1; i++){
 		/*_itoa(L->elem[i], s, 10);

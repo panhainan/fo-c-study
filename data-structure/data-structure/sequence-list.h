@@ -1,49 +1,49 @@
 /*
-Status£¨²Ù×÷½á¹û£©:
-0£º²Ù×÷Ê§°Ü£¬
-1£º²Ù×÷³É¹¦.
+Statusï¼ˆæ“ä½œç»“æœï¼‰:
+0ï¼šæ“ä½œå¤±è´¥ï¼Œ
+1ï¼šæ“ä½œæˆåŠŸ.
 */
-#define FALSE 0		//Õæ
-#define TRUE 1		//¼Ù
-#define FAIL_LIMIT -2	//²Ù×÷Ê§°Ü£¨²ÎÊıÔ½½ç£©
-#define FAIL_EMPTY -1	//²Ù×÷Ê§°Ü£¨Êı×éÎª¿Õ£©
-#define FAIL 0		//²Ù×÷Ê§°Ü
-#define SUCCESS 1	//²Ù×÷³É¹¦
-#define OVERFLOW -1 //¶¨Òå -1 Îª OVERFOLW ´íÎó
-#define DEFAULT_CAPACITY 10			//Ä¬ÈÏ³õÊ¼ÈİÁ¿´óĞ¡
-#define CAPACITY_INCREAM_MULTPLE 1.5	//Ä¬ÈÏÀ©Èİ±¶Êı
+#define FALSE 0		//çœŸ
+#define TRUE 1		//å‡
+#define FAIL_LIMIT -2	//æ“ä½œå¤±è´¥ï¼ˆå‚æ•°è¶Šç•Œï¼‰
+#define FAIL_EMPTY -1	//æ“ä½œå¤±è´¥ï¼ˆæ•°ç»„ä¸ºç©ºï¼‰
+#define FAIL 0		//æ“ä½œå¤±è´¥
+#define SUCCESS 1	//æ“ä½œæˆåŠŸ
+#define OVERFLOW -1 //å®šä¹‰ -1 ä¸º OVERFOLW é”™è¯¯
+#define DEFAULT_CAPACITY 10			//é»˜è®¤åˆå§‹å®¹é‡å¤§å°
+#define CAPACITY_INCREAM_MULTPLE 1.5	//é»˜è®¤æ‰©å®¹å€æ•°
 
-#define DEFAULT_ELEM_LENGTH 10			//Ä¬ÈÏÔªËØµÄ×Ö·û³¤¶È£¨ÓÃÓÚ´òÓ¡ÔªËØ£©
-#define ELEM_LEN_INCREAM_MULTPLE 1.5	//Ä¬ÈÏÔªËØ×Ö·û³¤¶ÈµÄÔö³¤±¶Êı£¨ÓÃÓÚ´òÓ¡ÔªËØ£©
-typedef int ElemType;	//Ä¿Ç°Ö»ÄÜÖ§³Ö¹Ì¶¨ÀàĞÍµÄÔªËØ£¬ÒòÎªÔÚ´òÓ¡Ê±ĞèÒª×ö´¦Àí
+#define DEFAULT_ELEM_LENGTH 10			//é»˜è®¤å…ƒç´ çš„å­—ç¬¦é•¿åº¦ï¼ˆç”¨äºæ‰“å°å…ƒç´ ï¼‰
+#define ELEM_LEN_INCREAM_MULTPLE 1.5	//é»˜è®¤å…ƒç´ å­—ç¬¦é•¿åº¦çš„å¢é•¿å€æ•°ï¼ˆç”¨äºæ‰“å°å…ƒç´ ï¼‰
+typedef int ElemType;	//ç›®å‰åªèƒ½æ”¯æŒå›ºå®šç±»å‹çš„å…ƒç´ ï¼Œå› ä¸ºåœ¨æ‰“å°æ—¶éœ€è¦åšå¤„ç†
 typedef int Status;
 
 typedef struct SequenceList{
-	ElemType *elem;	//´æ´¢¿Õ¼ä»ùÖ·
-	int length;		//µ±Ç°³¤¶È
-	int capacity;	//ÈİÁ¿
+	ElemType *elem;	//å­˜å‚¨ç©ºé—´åŸºå€
+	int length;		//å½“å‰é•¿åº¦
+	int capacity;	//å®¹é‡
 } *SqList;
-/*	ĞÂ½¨ÏßĞÔ±í	*/
+/*	æ–°å»ºçº¿æ€§è¡¨	*/
 SqList newSqList();
-/*	ÏßĞÔ±íÀ©Èİ	*/
+/*	çº¿æ€§è¡¨æ‰©å®¹	*/
 void increamSqListCapacity(SqList L);
-/*	ÅĞ¶ÏÏßĞÔ±íÊÇ·ñÎª¿Õ	*/
+/*	åˆ¤æ–­çº¿æ€§è¡¨æ˜¯å¦ä¸ºç©º	*/
 Status isSqListEmpty(SqList L);
-/*	ÅĞ¶ÏÎ»ÖÃÊÇ·ñÔÚÏßĞÔ±í·¶Î§ÄÚ	*/
+/*	åˆ¤æ–­ä½ç½®æ˜¯å¦åœ¨çº¿æ€§è¡¨èŒƒå›´å†…	*/
 Status isInSqListLimit(SqList L, int position);
-/*	ÔÚÏßĞÔ±íÄ©Î²²åÈëÔªËØ	*/
+/*	åœ¨çº¿æ€§è¡¨æœ«å°¾æ’å…¥å…ƒç´ 	*/
 Status addSqList(SqList L, ElemType elem);
-/*	ĞŞ¸ÄÏßĞÔ±íÖ¸¶¨Î»ÖÃ(Êµ¼ÊÎªÊı×éposition-1Î»ÖÃ)µÄÔªËØ¡¶==¡·	*/
+/*	ä¿®æ”¹çº¿æ€§è¡¨æŒ‡å®šä½ç½®(å®é™…ä¸ºæ•°ç»„position-1ä½ç½®)çš„å…ƒç´ ã€Š==ã€‹	*/
 Status setSqList(SqList L, ElemType elem, int position);
-/*	É¾³ıÏßĞÔ±íÄ©Î²µÄÔªËØ	*/
+/*	åˆ é™¤çº¿æ€§è¡¨æœ«å°¾çš„å…ƒç´ 	*/
 Status removeSqList(SqList L, ElemType *elem);
-/*	É¾³ıÏßĞÔ±íÖ¸¶¨Î»ÖÃ(Êµ¼ÊÎªÊı×éposition-1Î»ÖÃ)µÄÔªËØ	*/
+/*	åˆ é™¤çº¿æ€§è¡¨æŒ‡å®šä½ç½®(å®é™…ä¸ºæ•°ç»„position-1ä½ç½®)çš„å…ƒç´ 	*/
 Status removeSqListI(SqList L, ElemType *elem, int position);
-/*	»ñÈ¡ÏßĞÔ±íÄ©Î²µÄÔªËØ	*/
+/*	è·å–çº¿æ€§è¡¨æœ«å°¾çš„å…ƒç´ 	*/
 Status lastSqList(SqList L, ElemType *elem);
-/*	»ñÈ¡ÏßĞÔ±íÖ¸¶¨Î»ÖÃ(Êµ¼ÊÎªÊı×éposition-1Î»ÖÃ)µÄÔªËØ	*/
+/*	è·å–çº¿æ€§è¡¨æŒ‡å®šä½ç½®(å®é™…ä¸ºæ•°ç»„position-1ä½ç½®)çš„å…ƒç´ 	*/
 Status getSqList(SqList L, ElemType *elem, int position);
-/*	Çå¿ÕÏßĞÔ±í	*/
+/*	æ¸…ç©ºçº¿æ€§è¡¨	*/
 Status clearSqList(SqList L);
-/*	´òÓ¡ÏßĞÔ±í	*/
+/*	æ‰“å°çº¿æ€§è¡¨	*/
 Status printSqList(SqList L);

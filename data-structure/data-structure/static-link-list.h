@@ -1,31 +1,31 @@
-#define FALSE 0		//Õæ
-#define TRUE 1		//¼Ù
-#define FAIL_NULL  -3	//²Ù×÷Ê§°Ü£¨Î´³õÊ¼»¯LinkList£©
-#define FAIL_LIMIT -2	//²Ù×÷Ê§°Ü£¨²ÎÊıÔ½½ç£©
-#define FAIL_EMPTY -1	//²Ù×÷Ê§°Ü£¨Êı×éÎª¿Õ£©
-#define FAIL 0		//²Ù×÷Ê§°Ü
-#define SUCCESS 1	//²Ù×÷³É¹¦
-#define MAXSIZE 1000	//Á´±íµÄ×î´ó³¤¶È
+#define FALSE 0		//çœŸ
+#define TRUE 1		//å‡
+#define FAIL_NULL  -3	//æ“ä½œå¤±è´¥ï¼ˆæœªåˆå§‹åŒ–LinkListï¼‰
+#define FAIL_LIMIT -2	//æ“ä½œå¤±è´¥ï¼ˆå‚æ•°è¶Šç•Œï¼‰
+#define FAIL_EMPTY -1	//æ“ä½œå¤±è´¥ï¼ˆæ•°ç»„ä¸ºç©ºï¼‰
+#define FAIL 0		//æ“ä½œå¤±è´¥
+#define SUCCESS 1	//æ“ä½œæˆåŠŸ
+#define MAXSIZE 1000	//é“¾è¡¨çš„æœ€å¤§é•¿åº¦
 typedef int ElemType;
 typedef int Status;
-//Éè¶¨ StaticList[0].curÎªµ±Ç°±¸ÓÃÁ´±íÖ¸Ïò½ÚµãµÄÎ»ÖÃ£»StaticList[MAXSIZE-1].curÎªµ±Ç°Á´±íÍ·½áµãµÄÎ»ÖÃ
+//è®¾å®š StaticList[0].curä¸ºå½“å‰å¤‡ç”¨é“¾è¡¨æŒ‡å‘èŠ‚ç‚¹çš„ä½ç½®ï¼›StaticList[MAXSIZE-1].curä¸ºå½“å‰é“¾è¡¨å¤´ç»“ç‚¹çš„ä½ç½®
 typedef struct StaticLinkList {
 	ElemType data;
 	int cur;
 } StaticLinkListNode, StaticLinkList[MAXSIZE];
-/* ³õÊ¼»¯ */
+/* åˆå§‹åŒ– */
 Status initStaticLinkList(StaticLinkList L);
-/* ·ÖÅä±¸ÓÃ¿Õ¼ä */
+/* åˆ†é…å¤‡ç”¨ç©ºé—´ */
 int mallocStaticLinkList(StaticLinkList L);
-/* ÊÍ·ÅÕ¼ÓÃ¿Õ¼äÎª±¸ÓÃ¿Õ¼ä */
+/* é‡Šæ”¾å ç”¨ç©ºé—´ä¸ºå¤‡ç”¨ç©ºé—´ */
 void freeStaticLinkList(StaticLinkList L, int position);
-/* ²åÈë£¨Î²²å·¨£© */
+/* æ’å…¥ï¼ˆå°¾æ’æ³•ï¼‰ */
 Status addStaticLinkList(StaticLinkList L);
-/* ĞŞ¸Ä */
+/* ä¿®æ”¹ */
 Status setStaticLinkList(StaticLinkList L);
-/* »ñÈ¡ */
+/* è·å– */
 ElemType getStaticLinkList(StaticLinkList L, int position);
-/* É¾³ı */
+/* åˆ é™¤ */
 ElemType removeStaticLinkList(StaticLinkList L, int position);
 
 int lengthStaticLinkList(StaticLinkList L);

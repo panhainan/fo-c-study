@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 typedef int ElemType;
-//πÈ≤¢≈≈–Ú
+//ÂΩíÂπ∂ÊéíÂ∫è
 merge(ElemType A[], int low, int mid, int high,int length) {
 	ElemType *B = (ElemType *)malloc((length + 1) * sizeof(ElemType));
 	int i, j, k;
@@ -39,10 +39,10 @@ void main() {
 	for (int i = 1; i <= length; i++) {
 		printf("%d, ", E[i]);
 	}
-	printf("(≈≈–Ú«∞£©\n");
+	printf("(Èé∫ÊéëÁ∞≠ÈçìÂ∂èÁ¥ö\n");
 	merge_sort(E, 1, 7, 7);
 	for (int i = 1; i <= length; i++) {
 		printf("%d, ", E[i]);
 	}
-	printf("(≈≈–Ú∫Û£©\n");
+	printf("(Èé∫ÊéëÁ∞≠ÈçöÂ∫ØÁ¥ö\n");
 }
