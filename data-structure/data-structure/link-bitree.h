@@ -1,9 +1,11 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 #include<stdlib.h>
-#define SUCCESS 1
 #define OVERFLOW 0
 #define MAXSIZE 100
+#define FALSE 0
+#define TRUE 1
+typedef int Boolean;
 typedef char ElemType;
 typedef int Status;
 
@@ -36,11 +38,17 @@ BiTree ArrayToBiTree(BiTree T, ElemType elem[],int length);
       (#表示空节点)
 */
 BiTree CreateBiTree(BiTree T);
-/* 先序遍历 */
+/* 先序遍历(递归) */
 void PreOrder(BiTree T);
-/* 中序遍历 */
+/* 先序遍历（非递归） */
+void PreOrder2(BiTree T);
+/* 中序遍历(递归) */
 void InOrder(BiTree T);
-/* 后序遍历 */
+/* 中序遍历(非递归) */
+void InOrder2(BiTree T);
+/* 后序遍历(递归) */
 void PostOrder(BiTree T);
+/* 后序遍历(非递归) */
+void PostOrder2(BiTree T);
 /* 访问T节点的值 */
-void visit(BiTree T);
+void Visit(BiTree T);
