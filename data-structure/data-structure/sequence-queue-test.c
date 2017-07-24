@@ -1,71 +1,71 @@
 #include<stdio.h>
 #include "sequence-queue.h"
-void main() {
+void sequence_quue_test() {
 	SqQueue Q;
-	InitQueue(&Q);
-	printf("QueueEmpty:%d\n",QueueEmpty(&Q));
-	printf("QueueFull:%d\n", QueueFull(&Q));
-	printf("QueueLength:%d\n", QueueLength(&Q));
+	InitSQueue(&Q);
+	printf("SQueueEmpty:%d\n",SQueueEmpty(&Q));
+	printf("SQueueFull:%d\n", SQueueFull(&Q));
+	printf("SQueueLength:%d\n", SQueueLength(&Q));
 	printf("\n");
 
 	ElemType x = 10,y,z;
 	printf("the first enqueue.\n");
-	EnQueue(&Q, x);
-	printf("QueueEmpty:%d\n", QueueEmpty(&Q));
-	printf("QueueFull:%d\n", QueueFull(&Q));
-	printf("QueueLength:%d\n", QueueLength(&Q));
+	EnSQueue(&Q, x);
+	printf("SQueueEmpty:%d\n", SQueueEmpty(&Q));
+	printf("SQueueFull:%d\n", SQueueFull(&Q));
+	printf("SQueueLength:%d\n", SQueueLength(&Q));
 	printf("\n");
 
-	GetHead(&Q, &y);
+	GetSHead(&Q, &y);
 	printf("y=%d\n", y);
-	printf("QueueEmpty:%d\n", QueueEmpty(&Q));
-	printf("QueueFull:%d\n", QueueFull(&Q));
-	printf("QueueLength:%d\n", QueueLength(&Q));
+	printf("SQueueEmpty:%d\n", SQueueEmpty(&Q));
+	printf("SQueueFull:%d\n", SQueueFull(&Q));
+	printf("SQueueLength:%d\n", SQueueLength(&Q));
 	
 	printf("\n");
 	printf("the first dequeue.\n");
-	DeQueue(&Q, &z);
+	DeSQueue(&Q, &z);
 	printf("z=%d\n",z);
-	printf("QueueEmpty:%d\n", QueueEmpty(&Q));
-	printf("QueueFull:%d\n", QueueFull(&Q));
-	printf("QueueLength:%d\n", QueueLength(&Q));
+	printf("SQueueEmpty:%d\n", SQueueEmpty(&Q));
+	printf("SQueueFull:%d\n", SQueueFull(&Q));
+	printf("SQueueLength:%d\n", SQueueLength(&Q));
 	printf("\n");
 
 	x = 26;
 	printf("the second enqueue.\n");
-	EnQueue(&Q, x);
-	printf("QueueEmpty:%d\n", QueueEmpty(&Q));
-	printf("QueueFull:%d\n", QueueFull(&Q));
-	printf("QueueLength:%d\n", QueueLength(&Q));
+	EnSQueue(&Q, x);
+	printf("SQueueEmpty:%d\n", SQueueEmpty(&Q));
+	printf("SQueueFull:%d\n", SQueueFull(&Q));
+	printf("SQueueLength:%d\n", SQueueLength(&Q));
 	printf("\n");
 
-	GetHead(&Q, &y);
+	GetSHead(&Q, &y);
 	printf("y=%d\n", y);
-	printf("QueueEmpty:%d\n", QueueEmpty(&Q));
-	printf("QueueFull:%d\n", QueueFull(&Q));
-	printf("QueueLength:%d\n", QueueLength(&Q));
+	printf("SQueueEmpty:%d\n", SQueueEmpty(&Q));
+	printf("SQueueFull:%d\n", SQueueFull(&Q));
+	printf("SQueueLength:%d\n", SQueueLength(&Q));
 	printf("\n");
 
 	x = 88;
 	printf("the third enqueue.\n");
-	EnQueue(&Q, x);
-	printf("QueueEmpty:%d\n", QueueEmpty(&Q));
-	printf("QueueFull:%d\n", QueueFull(&Q));
-	printf("QueueLength:%d\n", QueueLength(&Q));
+	EnSQueue(&Q, x);
+	printf("SQueueEmpty:%d\n", SQueueEmpty(&Q));
+	printf("SQueueFull:%d\n", SQueueFull(&Q));
+	printf("SQueueLength:%d\n", SQueueLength(&Q));
 	printf("\n");
 
-	GetHead(&Q, &y);
+	GetSHead(&Q, &y);
 	printf("y=%d\n", y);
-	printf("QueueEmpty:%d\n", QueueEmpty(&Q));
-	printf("QueueFull:%d\n", QueueFull(&Q));
-	printf("QueueLength:%d\n", QueueLength(&Q));
+	printf("SQueueEmpty:%d\n", SQueueEmpty(&Q));
+	printf("SQueueFull:%d\n", SQueueFull(&Q));
+	printf("SQueueLength:%d\n", SQueueLength(&Q));
 
 	printf("\n");
 	printf("the second dequeue.\n");
-	DeQueue(&Q, &z);
+	DeSQueue(&Q, &z);
 	printf("z=%d\n", z);
-	printf("QueueEmpty:%d\n", QueueEmpty(&Q));
-	printf("QueueFull:%d\n", QueueFull(&Q));
-	printf("QueueLength:%d\n", QueueLength(&Q));
+	printf("SQueueEmpty:%d\n", SQueueEmpty(&Q));
+	printf("SQueueFull:%d\n", SQueueFull(&Q));
+	printf("SQueueLength:%d\n", SQueueLength(&Q));
 	printf("\n");
 }

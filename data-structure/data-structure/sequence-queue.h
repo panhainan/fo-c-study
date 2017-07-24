@@ -9,12 +9,16 @@ typedef struct {
 	ElemType data[MAXSIZE];
 	int front, rear;
 } SqQueue;
-
-void InitQueue(SqQueue *Q);
-Boolean QueueEmpty(SqQueue *Q);
-Boolean QueueFull(SqQueue *Q);
-int QueueLength(SqQueue *Q);
-void EnQueue(SqQueue *Q, ElemType x);
-void DeQueue(SqQueue *Q, ElemType *x);
-void GetHead(SqQueue *Q, ElemType *x);
+/* 初始化队列 */
+void InitSQueue(SqQueue *Q);
+/* 判断队列是否为空 */
+Boolean SQueueEmpty(SqQueue *Q);
+/* 判断队列是否已满 */
+Boolean SQueueFull(SqQueue *Q);
+/* 队列长度 */
+int SQueueLength(SqQueue *Q);
+/* 入队*/
+void EnSSQueue(SqQueue *Q, ElemType *x);
+/* 获取队列第一个元素 */
+void GetSHead(SqQueue *Q, ElemType *x);
 

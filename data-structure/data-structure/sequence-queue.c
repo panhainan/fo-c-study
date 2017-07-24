@@ -1,13 +1,13 @@
 #include "sequence-queue.h"
 #include<stdio.h>
 
-void InitQueue(SqQueue * Q)
+void InitSQueue(SqQueue * Q)
 {
 	Q->front = 0;
 	Q->rear = 0;
 }
 
-Boolean QueueEmpty(SqQueue * Q)
+Boolean SQueueEmpty(SqQueue * Q)
 {
 	if (Q->rear == Q->front)	
 		return TRUE;
@@ -15,7 +15,7 @@ Boolean QueueEmpty(SqQueue * Q)
 		return FALSE;
 }
 
-Boolean QueueFull(SqQueue * Q)
+Boolean SQueueFull(SqQueue * Q)
 {
 	if ((Q->rear + 1) % MAXSIZE == Q->front) 
 		return TRUE;
@@ -23,15 +23,15 @@ Boolean QueueFull(SqQueue * Q)
 		return FALSE;
 }
 
-int QueueLength(SqQueue * Q)
+int SQueueLength(SqQueue * Q)
 {
 	return (Q->rear - Q->front + MAXSIZE) % MAXSIZE;
 }
 
 
-void EnQueue(SqQueue * Q, ElemType x)
+void EnSQueue(SqQueue * Q, ElemType x)
 {
-	if (!QueueFull(Q)) {
+	if (!SQueueFull(Q)) {
 		Q->data[Q->rear] = x;
 		Q->rear = (Q->rear + 1) % MAXSIZE;
 	}
@@ -41,9 +41,9 @@ void EnQueue(SqQueue * Q, ElemType x)
 	
 }
 
-void DeQueue(SqQueue * Q, ElemType * x)
+void DeSQueue(SqQueue * Q, ElemType * x)
 {
-	if (!QueueEmpty(Q)) {
+	if (!SQueueEmpty(Q)) {
 		*x = Q->data[Q->front];
 		Q->front = (Q->front + 1) % MAXSIZE;
 	}
@@ -52,9 +52,9 @@ void DeQueue(SqQueue * Q, ElemType * x)
 	}
 }
 
-void GetHead(SqQueue * Q, ElemType * x)
+void GetSHead(SqQueue * Q, ElemType * x)
 {
-	if (!QueueEmpty(Q)) {
+	if (!SQueueEmpty(Q)) {
 		*x = Q->data[Q->front];
 	}
 	else {
