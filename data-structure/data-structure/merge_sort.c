@@ -33,7 +33,7 @@ void merge_sort(ElemType A[], int low, int high,int length) {
 		printf("\n");
 	}
 }
-void main() {
+void test_merge_sort() {
 	int length = 7;
 	ElemType E[8] = { 0,49,38,65,97,76,13,27 };
 	for (int i = 1; i <= length; i++) {
