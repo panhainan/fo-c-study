@@ -18,7 +18,7 @@ Boolean SQueueFull(SqQueue *Q);
 /* 队列长度 */
 int SQueueLength(SqQueue *Q);
 /* 入队*/
-void EnSSQueue(SqQueue *Q, ElemType *x);
+void EnSQueue(SqQueue *Q, ElemType x);
 /* 获取队列第一个元素 */
 void GetSHead(SqQueue *Q, ElemType *x);
 
