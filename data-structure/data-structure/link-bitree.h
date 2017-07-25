@@ -7,13 +7,13 @@
 #define FALSE 0
 #define TRUE 1
 typedef int Boolean;
-typedef char ElemType;
+typedef int ElemType;
 typedef int Status;
 
 typedef struct {
 	ElemType data;
 	struct BiTNode *lchild, *rchild;
-} BiTNode,*BiTree;
+} BiTNode,*BiTree, BSTNode, *BSTree;
 typedef struct {
 	BiTNode data[ASSIST_QUEUE_SIZE];
 	int front, rear;
@@ -63,3 +63,18 @@ void PostOrder2(BiTree T);
 void LeverOrder(BiTree T);
 /* 访问T节点的值 */
 void Visit(BiTree T);
+
+/*
+构造二叉排序树
+*/
+BSTree CreateBSTree(ElemType elem[], int length);
+/*
+插入关键字到二叉排序树中
+返回值：1表示成功；0表示失败
+*/
+int InsertBSTree(BSTree *BST, ElemType e);
+/*
+查找关键字为e是否在二叉排序树中
+返回值：NULL表示失败，否则表示成功并且该Node即为关键字e所在的结点
+*/
+BSTNode* SearchBSTree(BSTree BST, ElemType e);

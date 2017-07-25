@@ -225,5 +225,56 @@ void LeverOrder(BiTree T)
 
 void Visit(BiTree T)
 {
-	printf(" %c ", T->data);
+	printf(" %d ", T->data);
+}
+
+BSTree CreateBSTree(ElemType elem[], int length)
+{
+	/*
+		注意，此处必须初始化为NULL！
+		因为在下面InsertBSTree如果直接传参数BST的话，即使在InsertBSTree中正确构建了一个树，
+		但在这个函数中仍然得不到正确构建的树，得到的仍然是NULL。
+	*/
+	BSTree BST = NULL;
+	int i = 0;
+	while (i < length) {
+		InsertBSTree(&BST, elem[i]);
+		i++;
+	}
+	return BST;
+}
+
+
+int InsertBSTree(BSTree *T, ElemType e) {
+	if (*T == NULL) {	//原树为空，插入根结点
+		BSTree BST = (BSTree)malloc(sizeof(BSTNode));
+		BST->data = e;
+		BST->lchild = BST->rchild = NULL;
+		*T = BST;
+		return 1; //插入成功
+	}
+	else if (e == (*T)->data) {	//树中存在相同关键字的结点
+		return 0;
+	}
+	else if (e <(*T)->data) {	//插入左子树
+		return InsertBSTree( &((*T)->lchild) , e);
+	}
+	else {	//插入右子树
+		return InsertBSTree( &((*T)->rchild) , e);
+	}
+}
+
+BSTNode* SearchBSTree(BSTree T, ElemType e)
+{
+	BSTNode *cur = T;
+	int comparetimes = 0;
+	while (cur != NULL && e != cur->data) {
+		if (e < cur->data)
+			cur = cur->lchild;
+		else
+			cur = cur->rchild;
+		comparetimes++;
+	}
+	printf("Compared %d times . \n", comparetimes);
+	return cur;
 }
