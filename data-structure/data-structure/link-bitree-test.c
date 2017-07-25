@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include "link-bitree.h"
+//link_bitree_test
 void main() {
 	BiTree T = NULL;
 	int index = 0;
@@ -19,5 +20,6 @@ void main() {
 	PostOrder(T);
 	printf("\nPostOrder2:");
 	PostOrder2(T);
-	printf("\n");
+	printf("\nLeverOrder:");
+	LeverOrder(T);
 }
